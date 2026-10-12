@@ -206,11 +206,11 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.24688786, y: -0, z: -0, w: 0.9690441}
-  m_LocalPosition: {x: 0, y: 5.7, z: -10}
+  m_LocalPosition: {x: 0.08, y: 2.1599998, z: -6.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1712103527}
   m_LocalEulerAnglesHint: {x: 28.587, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -555,9 +555,8 @@ GameObject:
   - component: {fileID: 1712103527}
   - component: {fileID: 1712103526}
   - component: {fileID: 1712103525}
-  - component: {fileID: 1712103524}
-  - component: {fileID: 1712103523}
   - component: {fileID: 1712103522}
+  - component: {fileID: 1712103524}
   - component: {fileID: 1712103528}
   m_Layer: 0
   m_Name: Player
@@ -593,29 +592,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &1712103523
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712103521}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &1712103524
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -705,10 +681,11 @@ Transform:
   m_GameObject: {fileID: 1712103521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 2.78, z: -3.44}
+  m_LocalPosition: {x: -0.08, y: 3.54, z: -3.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1712103528
@@ -723,11 +700,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28861e7cd60042b7a56eca932af436d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
+  speed: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1359812371}
