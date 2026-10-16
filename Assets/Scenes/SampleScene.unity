@@ -205,13 +205,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.66302186, y: -0, z: -0, w: 0.74860007}
-  m_LocalPosition: {x: 0.08, y: 14.78, z: -1.0999999}
+  m_LocalRotation: {x: 0.18581225, y: -0, z: -0, w: 0.9825853}
+  m_LocalPosition: {x: 0.08, y: 5.5, z: -13.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712103527}
-  m_LocalEulerAnglesHint: {x: 83.062, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.417, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,7 +772,7 @@ Transform:
   m_GameObject: {fileID: 1712103521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 3.54, z: -3.44}
+  m_LocalPosition: {x: -0.08, y: 1.5, z: -3.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
   speed: 5
   target: {fileID: 412423766}
-  aimRadius: 5
+  aimRadius: 10
 --- !u!1 &1766071068
 GameObject:
   m_ObjectHideFlags: 0

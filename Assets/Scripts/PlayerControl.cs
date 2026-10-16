@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,8 +9,7 @@ public class PlayerControl : MonoBehaviour
     public float speed = 5.0f;
 
     public GameObject target;
-    public int aimRadius = 5;
-
+    public int aimRadius = 100;
 
 
     // Update is called once per frame
@@ -27,22 +25,19 @@ public class PlayerControl : MonoBehaviour
     {
         if (hit.collider.CompareTag("Ground"))
             {
-                if (Math.Abs(hit.point.x) - Math.Abs(transform.position.x) < aimRadius && Math.Abs(hit.point.z) - Math.Abs(transform.position.z) < aimRadius)
-                {
-                    target.GetComponent<MeshRenderer>().enabled = true;
-                    target.transform.position = hit.point;
-                }
-            
-            else
-                {
-                    target.GetComponent<MeshRenderer>().enabled = true;
-                    double scalar = Math.Sqrt(hit.point.x * hit.point.x + hit.point.z * hit.point.z)/aimRadius;
-                    target.transform.position = new Vector3((float)(hit.point.x / scalar), hit.point.y, (float)(hit.point.z / scalar));
-                }
+                target.GetComponent<MeshRenderer>().enabled = true;
+                UnityEngine.Vector3 offset = hit.point - transform.position;
+                
+                UnityEngine.Vector3 clamped = UnityEngine.Vector3.ClampMagnitude(offset, aimRadius);
+                target.transform.position = new Vector3(transform.position.x + clamped.x, hit.point.y, transform.position.z + clamped.z);
+                
             }
 
 
-        Debug.Log("ray hitting object");
+        else
+            {
+                target.GetComponent<MeshRenderer>().enabled = false;
+            }
     }
     }
 }
