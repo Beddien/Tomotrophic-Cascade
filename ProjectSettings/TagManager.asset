@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PowerUp
   - Ground
+  - FollowRegion
   layers:
   - Default
   - TransparentFX
