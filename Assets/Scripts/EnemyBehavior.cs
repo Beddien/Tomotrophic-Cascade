@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyFollow : MonoBehaviour
 {
 	//I first start getting the transform (position) of my player
-        public Transform target;
+    public Transform target;
         //Then I set up the speed of the enemy, that I can edit later
 	public float speed = 2f;
         //Lastly, I added the enemy a rigidbody
