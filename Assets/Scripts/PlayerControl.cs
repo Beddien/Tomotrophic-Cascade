@@ -31,6 +31,8 @@ public class PlayerControl : MonoBehaviour
     // Draws rays from the camera and places the target on the hit point when ray collides
     // With a 'Ground' object. If the hit point is beyond the aim radius' limit,
     // Clamps the target's position to the edge of the circle.
+
+    // BUG: right now the rays get caught on the player and tomotroph colliders. Can we make it go through them?
     Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
     Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
     if (Physics.Raycast(ray, out RaycastHit hit)) 
