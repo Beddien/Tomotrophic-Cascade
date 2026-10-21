@@ -12,7 +12,6 @@ public class PlayerControl : MonoBehaviour
     public GameObject followRegion;
     public int aimRadius = 100;
 
-
     // Update is called once per frame
     void Update()
     {
@@ -27,16 +26,18 @@ public class PlayerControl : MonoBehaviour
     followRegion.transform.position = new Vector3((float)(Input.GetAxis("Horizontal") * -3.25 + transform.position.x),
     transform.position.y, (float)(-1.5 + transform.position.z));
 
+    // Decision logic for choosing the next tomotroph to be thrown
+
+
     // Target positioning
     // Draws rays from the camera and places the target on the hit point when ray collides
     // With a 'Ground' object. If the hit point is beyond the aim radius' limit,
     // Clamps the target's position to the edge of the circle.
-
-    // BUG: right now the rays get caught on the player and tomotroph colliders. Can we make it go through them?
+    
     Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
     Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
     if (Physics.Raycast(ray, out RaycastHit hit)) 
-    {
+        {
         if (hit.collider.CompareTag("Ground"))
             {
                 target.GetComponent<MeshRenderer>().enabled = true;
@@ -52,7 +53,17 @@ public class PlayerControl : MonoBehaviour
             {
                 target.GetComponent<MeshRenderer>().enabled = false;
             }
-    }
+        }
+    
+    if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            TomotrophBehavior closest = TomotrophManager.GetClosest(transform.position);
+            if (closest != null)
+            {
+                closest.Throw(target.transform.position);
+            }
+        }
+        
     }
 
 }

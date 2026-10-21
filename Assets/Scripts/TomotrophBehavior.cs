@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TomotrophBehavior : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class TomotrophBehavior : MonoBehaviour
     private Vector3 followRegionExtents;
     private Vector3 followPosition;
     private Vector3 followOffset;
+    public Vector3 throwForce;
+    public float throwTime = 0.5f;
+
+    void OnDestroy()
+    {
+        TomotrophManager.Deregister(this);
+    }
 
     /*  
     This method has the tomotroph move to its randomly selected position in the
@@ -46,6 +54,8 @@ public class TomotrophBehavior : MonoBehaviour
     void OnTriggerEnter(Collider player)
     {
         if(player.tag == "Player"){
+            TomotrophManager.Register(this);
+
             followRegionCenter = followRegion.GetComponent<BoxCollider>().bounds.center;
             followRegionExtents = followRegion.GetComponent<BoxCollider>().bounds.extents;
             followPosition = RandomFollowingPosition(followRegionCenter, followRegionExtents);
@@ -83,5 +93,16 @@ public class TomotrophBehavior : MonoBehaviour
         float randomX = Random.Range(-extents.x, extents.x);
         float randomZ = Random.Range(-extents.z, extents.z);
         return center + new Vector3(randomX, 0, randomZ);
+    }
+
+    public void Throw(Vector3 targetPosition)
+    {
+        Vector3 displacement = transform.position - targetPosition;
+        throwForce.x = (displacement.x)/throwTime;
+        throwForce.z = (displacement.z)/throwTime;
+        throwForce.y = -0.5f * Physics.gravity.y * throwTime;
+
+
+        rb.linearVelocity = throwForce;
     }
 }
