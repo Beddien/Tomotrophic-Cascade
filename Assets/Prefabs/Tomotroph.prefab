@@ -136,6 +136,10 @@ MonoBehaviour:
   followRegion: {fileID: 0}
   speed: 5
   rb: {fileID: 6511431110779252476}
+  thrownPosition: {x: 0, y: 0, z: 0}
+  throwForce: {x: 0, y: 0, z: 0}
+  throwTime: 0.5
+  isThrown: 0
 --- !u!135 &2134735112825166912
 SphereCollider:
   m_ObjectHideFlags: 0

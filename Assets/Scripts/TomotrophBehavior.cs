@@ -10,12 +10,29 @@ public class TomotrophBehavior : MonoBehaviour
     private Vector3 followRegionExtents;
     private Vector3 followPosition;
     private Vector3 followOffset;
+    public Vector3 thrownPosition;
     public Vector3 throwForce;
     public float throwTime = 0.5f;
+    public bool isThrown = false;
+    public bool isActive = false;
+    public bool isPlanted = false;
 
     void OnDestroy()
     {
         TomotrophManager.Deregister(this);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            rb.linearVelocity = new Vector3(0,0,0);
+            // in the future put logic here that checks if there is a fruit or enemy nearby
+            if (!isActive)
+            {
+                isThrown = false;
+            }
+        }
     }
 
     /*  
@@ -71,7 +88,7 @@ public class TomotrophBehavior : MonoBehaviour
 
     */
     void OnTriggerStay(Collider player){
-  		if(player.tag == "Player"){
+  		if(player.tag == "Player" && !isThrown){
 			FollowPlayer();
 	    }
 	}
@@ -97,12 +114,23 @@ public class TomotrophBehavior : MonoBehaviour
 
     public void Throw(Vector3 targetPosition)
     {
-        Vector3 displacement = transform.position - targetPosition;
-        throwForce.x = (displacement.x)/throwTime;
-        throwForce.z = (displacement.z)/throwTime;
-        throwForce.y = -0.5f * Physics.gravity.y * throwTime;
+        isThrown = true;
+        thrownPosition = targetPosition;
+        Vector3 displacement = targetPosition - transform.position;
+        throwForce.x = (displacement.x/throwTime) * 0.35f;
+        throwForce.z = (displacement.z/throwTime) * 0.35f;
+        throwForce.y = 5 - 0.5f * Physics.gravity.y * throwTime;
 
 
         rb.linearVelocity = throwForce;
     }
+
+    // void Update()
+    // {
+    //     if (isThrown && transform.position.x == thrownPosition.x && transform.position.z == thrownPosition.z)
+    //     {
+    //         isThrown = false;
+    //         rb.linearVelocity = new Vector3(0,0,0);
+    //     }
+    // }
 }

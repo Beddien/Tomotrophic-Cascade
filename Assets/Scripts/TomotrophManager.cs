@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TomotrophManager : MonoBehaviour
@@ -22,16 +23,22 @@ public class TomotrophManager : MonoBehaviour
     public static TomotrophBehavior GetClosest(Vector3 playerTransform)
     {
         TomotrophBehavior closest = null;
-        float closest_distance = float.MaxValue;
+        float closest_distance = 100000000;
+        float get_thrown_range = 30;
+        Debug.Log("available list:");
+        Debug.Log(available.Count);
         for (int i = 0; i < available.Count; i++)
         {
+            Debug.Log(available[i]);
             float current = (available[i].transform.position - playerTransform).sqrMagnitude;
-            if (current > closest_distance)
+            if (current < closest_distance && current < get_thrown_range && !available[i].isThrown)
             {
                 closest = available[i];
                 closest_distance = current;
             }
         }
+        Debug.Log("closest:");
+        Debug.Log(closest);
         return closest;
     }
 }
