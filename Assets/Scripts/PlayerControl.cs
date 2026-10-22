@@ -58,7 +58,6 @@ public class PlayerControl : MonoBehaviour
     if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             TomotrophBehavior closest = TomotrophManager.GetClosest(transform.position);
-            Debug.Log(closest);
             if (closest != null)
             {
                 closest.Throw(target.transform.position);
@@ -67,7 +66,11 @@ public class PlayerControl : MonoBehaviour
             }
             closest = null;
         }
+
+    if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            TomotrophManager.RecallAll();
+        }
         
     }
-
 }

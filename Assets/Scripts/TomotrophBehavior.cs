@@ -3,6 +3,9 @@ using UnityEngine;
 public class TomotrophBehavior : MonoBehaviour
 {
     public GameObject followRegion;
+    private Transform currentTarget;
+    public float searchRadius = 6.0f;
+    public float workDistance = 0.5f;
 	public float speed = 2f;
 	public Rigidbody rb;
     private Vector3 followRegionCenter;
@@ -14,11 +17,42 @@ public class TomotrophBehavior : MonoBehaviour
     public float throwTime = 0.5f;
     public bool isThrown = false;
     public bool isActive = false;
+    public bool isLanded = false;
+    public bool isFollowing = false;
+
     public bool isPlanted = false;
 
-    void Update()
+    void FixedUpdate()
     {
+        if (isThrown) return;
 
+        if (isActive)
+        {
+            if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy)
+            {
+                isActive = false;
+                isLanded = false;
+                currentTarget = null;
+                isFollowing = true;
+                return;
+            }
+
+            Vector3 goal = new Vector3(currentTarget.position.x, rb.position.y, currentTarget.position.z);
+            if ((goal - transform.position).magnitude > workDistance)
+            {
+                Vector3 pos = Vector3.MoveTowards(rb.position, goal, speed * Time.fixedDeltaTime);
+                rb.MovePosition(pos);
+                transform.LookAt(goal);
+            }
+            else
+            {
+                // attack logic here later
+            }
+
+            
+        }
+        if (isFollowing) FollowPlayer();  
+  
     }
 
     void OnDestroy()
@@ -28,15 +62,37 @@ public class TomotrophBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && isThrown)
         {
-            rb.linearVelocity = new Vector3(0,0,0);
+            isThrown = false;
+            
+            rb.linearVelocity = Vector3.zero;
             // in the future put logic here that checks if there is a fruit or enemy nearby
-            if (isThrown && !isActive)
+
+            currentTarget = FindTarget();
+            isLanded = currentTarget != null;
+            isActive = currentTarget != null;
+            isFollowing = currentTarget == null;
+        }
+    }
+
+    Transform FindTarget()
+    {
+        Collider[] suspects = Physics.OverlapSphere(transform.position, searchRadius);
+        Transform bestTarget = null;
+        float bestSqr = float.MaxValue;
+        foreach (Collider i in suspects)
+        {
+            if (!i.CompareTag("Enemy") && !i.CompareTag("Fruit")) continue;
+            float currentSqr = (i.transform.position - transform.position).sqrMagnitude;
+            if (currentSqr < bestSqr)
             {
-                // isThrown = false;
+                bestSqr = currentSqr;
+                bestTarget = i.transform;
             }
         }
+
+        return bestTarget;
     }
 
     /*  
@@ -74,7 +130,8 @@ public class TomotrophBehavior : MonoBehaviour
     */
     void OnTriggerEnter(Collider player)
     {
-        if(player.tag == "Player" && !isThrown){
+        if(player.tag == "Player" && !isThrown && !isActive){
+            isFollowing = true;
             TomotrophManager.Register(this);
 
             followRegionCenter = followRegion.GetComponent<BoxCollider>().bounds.center;
@@ -92,26 +149,6 @@ public class TomotrophBehavior : MonoBehaviour
 
     */
     void OnTriggerStay(Collider player){
-        if (isThrown)
-        {
-            if(player.tag == "Enemy" || player.tag == "Fruit")
-            {
-                isActive = true;
-                Vector3 pos = Vector3.MoveTowards(transform.position, new Vector3(player.transform.position.x, 
-                player.transform.position.y, player.transform.position.z), speed * Time.deltaTime);
-
-                rb.MovePosition(pos);
-                transform.LookAt(pos);
-            }
-            else
-            {
-                isActive = false;
-            }
-        }
-  		if(player.tag == "Player" && !isThrown){
-			FollowPlayer();
-	    }
-
 
 	}
 
@@ -137,6 +174,10 @@ public class TomotrophBehavior : MonoBehaviour
     public void Throw(Vector3 targetPosition)
     {
         isThrown = true;
+        isFollowing = false;
+        isActive = false;
+        isLanded = false;
+        currentTarget = null;
         thrownPosition = targetPosition;
         Vector3 displacement = targetPosition - transform.position;
         throwForce.x = (displacement.x/throwTime) * 0.35f;
@@ -145,5 +186,14 @@ public class TomotrophBehavior : MonoBehaviour
 
 
         rb.linearVelocity = throwForce;
+    }
+    public void Recall()
+    {
+        if (isThrown) return;
+        isActive = false;
+        isLanded = false;
+        currentTarget = null;
+        isFollowing = true;
+
     }
 }

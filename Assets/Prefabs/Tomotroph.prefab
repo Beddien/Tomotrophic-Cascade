@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TomotrophBehavior
   followRegion: {fileID: 0}
+  searchRadius: 5.5
+  workDistance: 1
   speed: 5
   rb: {fileID: 6511431110779252476}
   thrownPosition: {x: 0, y: 0, z: 0}
@@ -141,6 +143,7 @@ MonoBehaviour:
   throwTime: 0.5
   isThrown: 0
   isActive: 0
+  isLanded: 0
   isPlanted: 0
 --- !u!135 &2134735112825166912
 SphereCollider:
