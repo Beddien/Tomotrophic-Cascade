@@ -140,6 +140,8 @@ MonoBehaviour:
   throwForce: {x: 0, y: 0, z: 0}
   throwTime: 0.5
   isThrown: 0
+  isActive: 0
+  isPlanted: 0
 --- !u!135 &2134735112825166912
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 39.137302
+  m_Radius: 20
   m_Center: {x: 0, y: -7.8225064, z: 0}
 --- !u!136 &230792106689348697
 CapsuleCollider:

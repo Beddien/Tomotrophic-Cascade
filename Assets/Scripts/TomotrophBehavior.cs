@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class TomotrophBehavior : MonoBehaviour
 {
@@ -17,6 +16,11 @@ public class TomotrophBehavior : MonoBehaviour
     public bool isActive = false;
     public bool isPlanted = false;
 
+    void Update()
+    {
+
+    }
+
     void OnDestroy()
     {
         TomotrophManager.Deregister(this);
@@ -28,9 +32,9 @@ public class TomotrophBehavior : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(0,0,0);
             // in the future put logic here that checks if there is a fruit or enemy nearby
-            if (!isActive)
+            if (isThrown && !isActive)
             {
-                isThrown = false;
+                // isThrown = false;
             }
         }
     }
@@ -70,7 +74,7 @@ public class TomotrophBehavior : MonoBehaviour
     */
     void OnTriggerEnter(Collider player)
     {
-        if(player.tag == "Player"){
+        if(player.tag == "Player" && !isThrown){
             TomotrophManager.Register(this);
 
             followRegionCenter = followRegion.GetComponent<BoxCollider>().bounds.center;
@@ -88,9 +92,27 @@ public class TomotrophBehavior : MonoBehaviour
 
     */
     void OnTriggerStay(Collider player){
+        if (isThrown)
+        {
+            if(player.tag == "Enemy" || player.tag == "Fruit")
+            {
+                isActive = true;
+                Vector3 pos = Vector3.MoveTowards(transform.position, new Vector3(player.transform.position.x, 
+                player.transform.position.y, player.transform.position.z), speed * Time.deltaTime);
+
+                rb.MovePosition(pos);
+                transform.LookAt(pos);
+            }
+            else
+            {
+                isActive = false;
+            }
+        }
   		if(player.tag == "Player" && !isThrown){
 			FollowPlayer();
 	    }
+
+
 	}
 
     /*
@@ -124,13 +146,4 @@ public class TomotrophBehavior : MonoBehaviour
 
         rb.linearVelocity = throwForce;
     }
-
-    // void Update()
-    // {
-    //     if (isThrown && transform.position.x == thrownPosition.x && transform.position.z == thrownPosition.z)
-    //     {
-    //         isThrown = false;
-    //         rb.linearVelocity = new Vector3(0,0,0);
-    //     }
-    // }
 }
