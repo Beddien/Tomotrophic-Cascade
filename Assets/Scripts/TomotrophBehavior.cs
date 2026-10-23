@@ -42,7 +42,6 @@ public class TomotrophBehavior : MonoBehaviour
             {
                 Vector3 pos = Vector3.MoveTowards(rb.position, goal, speed * Time.fixedDeltaTime);
                 rb.MovePosition(pos);
-                transform.LookAt(goal);
             }
             else
             {
@@ -51,7 +50,7 @@ public class TomotrophBehavior : MonoBehaviour
 
             
         }
-        if (isFollowing) FollowPlayer();  
+        if (isFollowing) FollowPlayer();
   
     }
 
@@ -114,7 +113,6 @@ public class TomotrophBehavior : MonoBehaviour
         // is causing a bug where the tomotrophs fly up into the sky and therefore
         // will need to be changed in the future.
         rb.MovePosition(pos);
-        transform.LookAt(pos);
 
 
 
