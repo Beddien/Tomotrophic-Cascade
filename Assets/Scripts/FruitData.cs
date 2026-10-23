@@ -5,7 +5,6 @@ public class FruitData : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public int pickupRequirement = 0;
-    public float pickupRadius = 1.0f;
     public int currentTomotrophs = 0;
 
     // Update is called once per frame
@@ -18,11 +17,20 @@ public class FruitData : MonoBehaviour
         }
     }
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Tomotroph"))
         {
             currentTomotrophs++;
+            Debug.Log("Tomotroph entered");
+        }
+    }
+        void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Tomotroph"))
+        {
+            currentTomotrophs--;
+            Debug.Log("Tomotroph exited");
         }
     }
 }

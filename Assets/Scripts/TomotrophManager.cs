@@ -34,7 +34,6 @@ public class TomotrophManager : MonoBehaviour
         float get_thrown_range = 30;
         for (int i = 0; i < available.Count; i++)
         {
-            Debug.Log(available[i]);
             float current = (available[i].transform.position - playerTransform).sqrMagnitude;
             if (current < closest_distance && current < get_thrown_range && !available[i].isThrown && !available[i].isActive)
             {
@@ -42,8 +41,6 @@ public class TomotrophManager : MonoBehaviour
                 closest_distance = current;
             }
         }
-        Debug.Log("closest:");
-        Debug.Log(closest);
         return closest;
     }
 }
