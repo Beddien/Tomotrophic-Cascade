@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
     void Update()
     {
         health = startHealth;
-
+    
 
     }
     public void PlayerTakesDamage(float damageAmount)

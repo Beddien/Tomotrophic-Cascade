@@ -9,6 +9,10 @@ public class EnemyFollow : MonoBehaviour
 	public float speed = 2f;
         //Lastly, I added the enemy a rigidbody
 	public Rigidbody rb;
+	public int currentTomotrophs = 0;
+	public float attackTimer = 0f;
+	public float damageAmount = 0f;
+	
   
 //First thing, I will create a function that follows the player
 void FollowPlayer(){
@@ -26,5 +30,33 @@ void OnTriggerStay(Collider player){
 	    	}
 		
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Tomotroph"))
+		{
+			currentTomotrophs++;
+            Debug.Log("Tomotroph entered enemy radius");
+
+		if(attackTimer <= 0f) attackTimer = 2f;
+			{
+				Destroy(collision.gameObject);
+				Debug.Log("Tomotroph died");
+				attackTimer = 0f;
+			}
+
+		}
+
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			
+			
+				Debug.Log("damaged player!");
+				damageAmount =+ 1f;
+				GetComponent<Renderer>().material.color = Color.red;
+			
+		}
+
+    }
 
 }
