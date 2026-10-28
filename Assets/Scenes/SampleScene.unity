@@ -346,7 +346,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18581225, y: -0, z: -0, w: 0.9825853}
-  m_LocalPosition: {x: 0.08, y: 5.5, z: -13.7}
+  m_LocalPosition: {x: 0.08, y: 3.13, z: -7.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1461,9 +1461,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 2369141232583874009, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2369141232583874009, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6308694629686536553, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
       propertyPath: m_Name
       value: Apple (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6759278277956551658, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1957,6 +2005,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5746347109697799444, guid: 36f1f4bb092d94174955b71b31cd22bc, type: 3}
   m_PrefabInstance: {fileID: 1745067223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1818580372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.567209
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.137967
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 611306808982100867, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308694629686536553, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_Name
+      value: Apple (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
 --- !u!1001 &1918459140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2247,9 +2352,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449869528994872736, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 2369141232583874009, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2369141232583874009, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6308694629686536553, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
       propertyPath: m_Name
       value: Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 6759278277956551658, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2272,3 +2425,4 @@ SceneRoots:
   - {fileID: 1677465564}
   - {fileID: 7735986748739085389}
   - {fileID: 1420432722}
+  - {fileID: 1818580372}

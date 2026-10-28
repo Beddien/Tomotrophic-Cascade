@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 
 public class FruitData : MonoBehaviour
@@ -6,8 +6,14 @@ public class FruitData : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public int pickupRequirement = 0;
     public int currentTomotrophs = 0;
+    public TextMeshProUGUI requirementText;
 
     // Update is called once per frame
+    private void Start()
+    {
+        UpdateText();
+    }
+
     void Update()
     {
         if (currentTomotrophs >= pickupRequirement)
@@ -22,15 +28,19 @@ public class FruitData : MonoBehaviour
         if (collision.gameObject.CompareTag("Tomotroph"))
         {
             currentTomotrophs++;
-            Debug.Log("Tomotroph entered");
+            UpdateText();
         }
     }
-        void OnCollisionExit(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Tomotroph"))
         {
             currentTomotrophs--;
-            Debug.Log("Tomotroph exited");
+            UpdateText();
         }
     }
+    public void UpdateText()
+    {
+        requirementText.text = currentTomotrophs.ToString() + "/" + pickupRequirement;
+    } 
 }
