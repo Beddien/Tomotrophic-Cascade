@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TomotrophBehavior
   followRegion: {fileID: 0}
   searchRadius: 5.5
-  workDistance: 1
+  workDistance: 0.5
   speed: 5
   rb: {fileID: 6511431110779252476}
   thrownPosition: {x: 0, y: 0, z: 0}
