@@ -61,6 +61,14 @@ PrefabInstance:
       value: Stump
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 720fde3f3dcc0d3449ed7a1a4f833ead, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 720fde3f3dcc0d3449ed7a1a4f833ead, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 720fde3f3dcc0d3449ed7a1a4f833ead, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 126
       objectReference: {fileID: 0}
@@ -87,7 +95,7 @@ LODGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5385305736409967822}
-  serializedVersion: 2
+  serializedVersion: 3
   m_LocalReferencePoint: {x: -0.00000011920929, y: -0.023845196, z: -0.08468175}
   m_Size: 1.6867921
   m_FadeMode: 0
@@ -99,6 +107,7 @@ LODGroup:
     renderers:
     - renderer: {fileID: 5889740161863470363}
   m_Enabled: 1
+  m_GlobalIlluminationLOD: 0
 --- !u!64 &569437864624727460
 MeshCollider:
   m_ObjectHideFlags: 0

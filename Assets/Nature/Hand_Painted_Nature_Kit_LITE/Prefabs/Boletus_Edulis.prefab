@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3904990935828752836, guid: 37cae8df2b5d86144b5fccc1e84be402, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3904990935828752836, guid: 37cae8df2b5d86144b5fccc1e84be402, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -61,12 +65,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 5a1bd5dc420d90a4d8d1521b8c9bd8f6, type: 2}
     - target: {fileID: -2253412778893562025, guid: 37cae8df2b5d86144b5fccc1e84be402, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253412778893562025, guid: 37cae8df2b5d86144b5fccc1e84be402, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 37cae8df2b5d86144b5fccc1e84be402, type: 3}
       propertyPath: m_Name
       value: Boletus_Edulis
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 37cae8df2b5d86144b5fccc1e84be402, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 37cae8df2b5d86144b5fccc1e84be402, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 37cae8df2b5d86144b5fccc1e84be402, type: 3}
       propertyPath: m_StaticEditorFlags

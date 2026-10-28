@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7777669957731528141, guid: e149cad8e58c7f248bca8c12943f344b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7777669957731528141, guid: e149cad8e58c7f248bca8c12943f344b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -65,12 +69,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 5a1bd5dc420d90a4d8d1521b8c9bd8f6, type: 2}
     - target: {fileID: -517458512199228152, guid: e149cad8e58c7f248bca8c12943f344b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -517458512199228152, guid: e149cad8e58c7f248bca8c12943f344b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e149cad8e58c7f248bca8c12943f344b, type: 3}
       propertyPath: m_Name
       value: Plantain
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e149cad8e58c7f248bca8c12943f344b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e149cad8e58c7f248bca8c12943f344b, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e149cad8e58c7f248bca8c12943f344b, type: 3}
       propertyPath: m_StaticEditorFlags
