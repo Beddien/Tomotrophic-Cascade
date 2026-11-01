@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class TomotrophManager : MonoBehaviour
 {
+    public GameObject mainPlayer;
     private static readonly List<TomotrophBehavior> available = new List<TomotrophBehavior>();
     public static int count = available.Count;
+    
 
     public static void Register(TomotrophBehavior t)
     {
@@ -19,11 +21,14 @@ public class TomotrophManager : MonoBehaviour
         available.Remove(t);
     }
 
-    public static void RecallAll()
+    public static void RecallAll(Vector3 playerPosition)
     {
+        float returnRange = 400f; // 20 is the range for general follow activation, so 20 squared
         for (int i = 0; i < available.Count; i++)
         {
+            if ((available[i].transform.position - playerPosition).sqrMagnitude < returnRange) {
             available[i].Recall();
+            }
         }
     }
 

@@ -69,7 +69,7 @@ public class PlayerControl : MonoBehaviour
 
     if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            TomotrophManager.RecallAll();
+            TomotrophManager.RecallAll(transform.position);
         }
         
     }
