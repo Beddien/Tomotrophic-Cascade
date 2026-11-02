@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 8361055258584715953, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.92
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2563,6 +2567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd15e2a53bf0435298926d5b28f420b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TomotrophManager
+  mainPlayer: {fileID: 0}
 --- !u!4 &1646241289
 Transform:
   m_ObjectHideFlags: 0

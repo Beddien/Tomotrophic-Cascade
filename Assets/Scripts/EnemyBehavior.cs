@@ -24,11 +24,11 @@ void FollowPlayer(){
     }
     
 //Finally, I add a collider function that calls the FollowPlayer() function when it is within its range
-void OnTriggerStay(Collider player){
-	  		if(player.tag == "Player"){
+void OnTriggerStay(Collider collision){
+	  		if (collision.gameObject.CompareTag("Player")){
 	    		FollowPlayer();
 	    	}
-		
+
 	}
 
     void OnCollisionEnter(Collision collision)
