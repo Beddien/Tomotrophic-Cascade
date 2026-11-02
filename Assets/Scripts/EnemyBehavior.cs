@@ -1,7 +1,7 @@
-using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFollow : MonoBehaviour
+public class EnemyBehavior : MonoBehaviour
 {
 	//I first start getting the transform (position) of my player
     public Transform target;
@@ -9,9 +9,11 @@ public class EnemyFollow : MonoBehaviour
 	public float speed = 2f;
         //Lastly, I added the enemy a rigidbody
 	public Rigidbody rb;
-	public int currentTomotrophs = 0;
-	public float attackTimer = 0f;
+	public float attackTimer = 2.5f;
+	public float AttackTimerConstant = 2.5f;
 	public float damageAmount = 0f;
+	public float health = 15f;
+	private readonly List<GameObject> inRange = new List<GameObject>(); //TEMP FOR COMBAT
 	
   
 //First thing, I will create a function that follows the player
@@ -23,7 +25,6 @@ void FollowPlayer(){
        	transform.LookAt(target);
     }
     
-//Finally, I add a collider function that calls the FollowPlayer() function when it is within its range
 void OnTriggerStay(Collider collision){
 	  		if (collision.gameObject.CompareTag("Player")){
 	    		FollowPlayer();
@@ -31,19 +32,14 @@ void OnTriggerStay(Collider collision){
 
 	}
 
-    void OnCollisionEnter(Collision collision)
+void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Tomotroph"))
 		{
-			currentTomotrophs++;
-            Debug.Log("Tomotroph entered enemy radius");
+			// TEMP FOR COMBAT
+			inRange.Add(collision.gameObject);
 
-		if(attackTimer <= 0f) attackTimer = 2f;
-			{
-				Destroy(collision.gameObject);
-				Debug.Log("Tomotroph died");
-				attackTimer = 0f;
-			}
+
 
 		}
 
@@ -51,12 +47,49 @@ void OnTriggerStay(Collider collision){
 		{
 			
 			
-				Debug.Log("damaged player!");
-				damageAmount =+ 1f;
+				damageAmount += 1f;
 				GetComponent<Renderer>().material.color = Color.red;
 			
 		}
 
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Tomotroph"))
+		{
+			inRange.Remove(collision.gameObject);
+			if (inRange.Count == 0)
+			{
+				attackTimer = AttackTimerConstant;
+			}
+		}
+    }
+
+	void Update()
+	{
+		if (inRange.Count > 0) {
+			attackTimer -= Time.deltaTime;
+			if (attackTimer < 0f)
+			{
+				Debug.Log("Tomotroph eaten");
+				attackTimer = AttackTimerConstant;
+				int toKill = Random.Range(0, inRange.Count);
+				GameObject victim = inRange[toKill];
+				inRange.Remove(victim);
+				Destroy(victim);
+				if (inRange.Count == 0)
+				{
+					attackTimer = AttackTimerConstant;
+				}
+			}
+		}
+
+	}
+
+    void FixedUpdate()
+    {
+        if (health <= 0) Destroy(gameObject); // TEMP DEATH CONDITION
     }
 
 }

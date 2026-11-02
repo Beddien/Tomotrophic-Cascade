@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class TomotrophBehavior : MonoBehaviour
@@ -19,6 +20,9 @@ public class TomotrophBehavior : MonoBehaviour
     public bool isActive = false;
     public bool isLanded = false;
     public bool isFollowing = false;
+    public float damage = 1.0f;
+    public float attackTimer = 1.0f;
+    public float AttackTimerConstant = 1.0f;
 
     public bool isPlanted = false;
 
@@ -73,6 +77,26 @@ public class TomotrophBehavior : MonoBehaviour
             isActive = currentTarget != null;
             isFollowing = currentTarget == null;
         }
+    }
+
+    private void OnCollisionStay(Collision other) {
+        if (other.gameObject.CompareTag("Enemy")){
+	    	attackTimer -= Time.deltaTime;
+			if (attackTimer < 0f)
+			{
+
+				attackTimer = AttackTimerConstant;
+                if (other.gameObject.TryGetComponent(out EnemyBehavior enemy))
+                {
+                    enemy.health -= damage;
+                }
+			}
+	    }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy")) attackTimer = AttackTimerConstant;
     }
 
     Transform FindTarget()
