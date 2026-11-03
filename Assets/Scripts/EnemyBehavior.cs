@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
@@ -13,22 +14,11 @@ public class EnemyBehavior : MonoBehaviour
 	public float AttackTimerConstant = 2.5f;
 	public float damageAmount = 0f;
 	public float health = 15f;
+	private bool isChasing = false;
 	private readonly List<GameObject> inRange = new List<GameObject>(); //TEMP FOR COMBAT
-	
-  
-//First thing, I will create a function that follows the player
-void FollowPlayer(){
-    	//I will create a vector 3 called pos that stores the movement that I want my player to do
-        Vector3 pos = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        //I will use these two built-in functions to follow the player
-        rb.MovePosition(pos);
-       	transform.LookAt(target);
-    }
     
 void OnTriggerStay(Collider collision){
-	  		if (collision.gameObject.CompareTag("Player")){
-	    		FollowPlayer();
-	    	}
+	  	if (collision.gameObject.CompareTag("Player")) isChasing = true;
 
 	}
 
@@ -90,6 +80,24 @@ void OnCollisionEnter(Collision collision)
     void FixedUpdate()
     {
         if (health <= 0) Destroy(gameObject); // TEMP DEATH CONDITION
-    }
+    
+		if (isChasing) {
+			Vector3 pos = target.position - rb.position;
+			pos.y = 0f;
+
+			if (pos.sqrMagnitude > 0.0001f)
+			{
+				pos.Normalize();
+				rb.linearVelocity = new Vector3 (pos.x * speed, rb.linearVelocity.y, pos.z * speed);
+
+			}
+		}
+		else
+		{
+			rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
+		}
+
+		isChasing = false;
+	}
 
 }

@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 1102460378523026838}
   - component: {fileID: 6489705678706783030}
   - component: {fileID: 2760699065457146374}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015606907971026882}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -119,7 +119,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1102460378523026838
 MonoBehaviour:
@@ -133,9 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806fe9853674440eb980d541822fbbd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  target: {fileID: 0}
-  speed: 2
+  target: {fileID: 7639002451394763495, guid: b9a30064c402e4b798c629eaaefc3ec1, type: 3}
+  speed: 4
   rb: {fileID: 2164402561324257683}
+  attackTimer: 2.5
+  AttackTimerConstant: 2.5
+  damageAmount: 0
+  health: 15
 --- !u!135 &6489705678706783030
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -155,7 +159,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.91739
+  m_Radius: 10
   m_Center: {x: 0.35348034, y: 0, z: 0}
 --- !u!65 &2760699065457146374
 BoxCollider:

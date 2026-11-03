@@ -179,6 +179,7 @@ MonoBehaviour:
   pickupRequirement: 4
   currentTomotrophs: 0
   requirementText: {fileID: 4928194357920774036}
+  rb: {fileID: 8604256407638621992}
 --- !u!1 &6490586246652005282
 GameObject:
   m_ObjectHideFlags: 0

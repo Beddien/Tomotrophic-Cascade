@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class FruitData : MonoBehaviour
@@ -7,6 +8,7 @@ public class FruitData : MonoBehaviour
     public int pickupRequirement = 0;
     public int currentTomotrophs = 0;
     public TextMeshProUGUI requirementText;
+    public Rigidbody rb;
 
     // Update is called once per frame
     private void Start()
@@ -14,13 +16,15 @@ public class FruitData : MonoBehaviour
         UpdateText();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (currentTomotrophs >= pickupRequirement)
         {
             InventoryManager.collectedFruits.Add("Apple");
             Destroy(gameObject);
         }
+
+        rb.linearVelocity = new Vector3(0f, 0f, 0f);
     }
 
     void OnCollisionEnter(Collision collision)
