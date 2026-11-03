@@ -41,20 +41,20 @@ public class TomotrophBehavior : MonoBehaviour
                 return;
             }
 
-            Vector3 goal = new Vector3(currentTarget.position.x, rb.position.y, currentTarget.position.z);
-            if ((goal - transform.position).magnitude > workDistance)
+            Vector3 pos = currentTarget.position;
+            if (new Vector2(pos.x - rb.position.x, pos.z - rb.position.z).magnitude > workDistance)
             {
-                Vector3 pos = Vector3.MoveTowards(rb.position, goal, speed * Time.fixedDeltaTime);
-                rb.MovePosition(pos);
+                MoveToward(pos);
             }
             else
             {
-                // attack logic here later
+                Freeze();
             }
 
             
         }
-        if (isFollowing) FollowPlayer();
+        else if (isFollowing) FollowPlayer();
+        else Freeze();
   
     }
 
@@ -130,18 +130,24 @@ public class TomotrophBehavior : MonoBehaviour
         // then updates the position based on that offset and the followregion's current
         // position (so that they can keep following even when the player moves)
         followPosition = followRegion.transform.position + followOffset;
-        Vector3 pos = Vector3.MoveTowards(transform.position, new Vector3(followPosition.x, 
-        transform.position.y, followPosition.z), speed * Time.deltaTime);
+        MoveToward(followPosition);
 
-        // The tomotroph is moved here using its rigidbody, which is fine for now but
-        // is causing a bug where the tomotrophs fly up into the sky and therefore
-        // will need to be changed in the future.
-        rb.MovePosition(pos);
+    }
 
-
-
+    void MoveToward(Vector3 goal)
+    {
+        Vector3 pos = new Vector3(goal.x - rb.position.x, 0f, goal.z - rb.position.z);
         
+        Vector3 desired = pos.magnitude > speed * Time.fixedDeltaTime
+            ? pos.normalized * speed
+            : pos / Time.fixedDeltaTime;
 
+        rb.linearVelocity = new Vector3(desired.x, rb.linearVelocity.y, desired.z);
+    }
+
+    void Freeze()
+    {
+        rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
     }
     /*
     This OnTriggerEnter is used to determine what the area tomotrophs should navigate to is

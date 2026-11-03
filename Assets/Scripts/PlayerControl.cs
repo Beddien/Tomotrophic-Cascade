@@ -73,4 +73,12 @@ public class PlayerControl : MonoBehaviour
         }
         
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Tomotroph"))
+        {
+            Physics.IgnoreCollision(GetComponent<CapsuleCollider>(), other, true);
+        }
+    }
 }
