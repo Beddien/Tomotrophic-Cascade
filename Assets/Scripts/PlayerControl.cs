@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour
     public GameObject target;
     public GameObject followRegion;
     public int aimRadius = 100;
+    public Camera mainCamera;
+    public int cameraState = 0;
 
     // Update is called once per frame
     void Update()
@@ -72,6 +74,25 @@ public class PlayerControl : MonoBehaviour
             TomotrophManager.RecallAll(transform.position);
         }
         
+    if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (cameraState == 2)
+            {
+                cameraState = 0;
+                mainCamera.transform.position = transform.position + new Vector3(0.08f, 3.34f, -6.02f);
+            }
+            else if (cameraState == 1)
+            {
+                cameraState++;
+                mainCamera.transform.position = transform.position + new Vector3(0.08f, 7.46f, -13.62f);
+            }
+            else if (cameraState == 0)
+            {
+                // Bug where this doesn't activate the first time it is pressed
+                cameraState++;
+                mainCamera.transform.position = transform.position + new Vector3(0.08f, 3.94f, -7.46f);
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
