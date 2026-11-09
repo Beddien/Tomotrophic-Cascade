@@ -97,6 +97,28 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
+  - name: thrown
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1036
+      y: 4
+      width: 926
+      height: 770
+    spriteID: 0ea7bb3b0319e4e358e5c0016d90130b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1036, y: 4}
+    spritePosition: {x: 0, y: 25}
   - name: walk2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -141,7 +163,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 1036}
     spritePosition: {x: 2, y: 5}
-  - name: body
+  - name: standing
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -162,28 +184,6 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 2731}
-    spritePosition: {x: 46, y: 12}
-  - name: body copy
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1036
-      y: 4
-      width: 876
-      height: 831
-    spriteID: 228931501450d4931b06d89692be17e4
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1036, y: 4}
     spritePosition: {x: 46, y: 12}
   - name: Background
     originalName: 
@@ -211,7 +211,43 @@ ScriptedImporter:
   rigSpriteImportData: []
   sharedRigSpriteImportData: []
   mosaicSpriteImportData: []
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   mosaicLayers: 1
   characterMode: 1
   documentPivot: {x: 0, y: 0}
@@ -235,9 +271,39 @@ ScriptedImporter:
   pipeline: {instanceID: 0}
   pipelineVersion: 
   spritePackingTag: 
-  resliceFromLayer: 0
+  resliceFromLayer: 1
   pSDLayerImportSetting: []
   psdLayers:
+  - name: collecting item
+    spriteName: collecting item
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8a12cbd2b728443b295a70cc069ac95d
+    layerID: 10
+    mosaicPosition: {x: 4, y: 1036}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: attacking
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f7dc7f497e2144ad697a818f12504d93
+    layerID: 8
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: thrown
+    spriteName: thrown
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0ea7bb3b0319e4e358e5c0016d90130b
+    layerID: 7
+    mosaicPosition: {x: 1036, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: walk2
     spriteName: walk2
     isGroup: 0
@@ -258,8 +324,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: body
-    spriteName: body
+  - name: standing
+    spriteName: standing
     isGroup: 0
     parentIndex: -1
     spriteID: c5855282e059d4d9da6c782753c89ebe
@@ -276,8 +342,8 @@ ScriptedImporter:
     layerID: 4
     mosaicPosition: {x: 1036, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: Layer 1
     spriteName: 
     isGroup: 0
