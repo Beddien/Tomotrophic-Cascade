@@ -106,7 +106,7 @@ public class TomotrophBehavior : MonoBehaviour
         float bestSqr = float.MaxValue;
         foreach (Collider i in suspects)
         {
-            if (!i.CompareTag("Enemy") && !i.CompareTag("Fruit")) continue;
+            if (!i.CompareTag("Enemy") && !i.CompareTag("Fruit") && !i.CompareTag("Wall")) continue;
             float currentSqr = (i.transform.position - transform.position).sqrMagnitude;
             if (currentSqr < bestSqr)
             {

@@ -4928,7 +4928,7 @@ GameObject:
   - component: {fileID: 1203005180}
   m_Layer: 2
   m_Name: Wall
-  m_TagString: Fruit
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4950,6 +4950,8 @@ MonoBehaviour:
   requirementText: {fileID: 897129544}
   rb: {fileID: 1203005180}
   fruitCode: Wall
+  minScale: 0.05
+  maxScale: 0.07
 --- !u!65 &1203005175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4969,8 +4971,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.55554646, z: 3.80896}
-  m_Center: {x: 0, y: -0.22222677, z: -0.014373779}
+  m_Size: {x: 1, y: 0.55554646, z: 3.8411713}
+  m_Center: {x: 0, y: -0.22222677, z: -0.030479431}
 --- !u!65 &1203005176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5861,6 +5863,10 @@ PrefabInstance:
     - target: {fileID: 6308694629686536553, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
       propertyPath: m_Name
       value: Apple (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604256407638621992, guid: 989106de5ef3245ff90fd11b4b121930, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

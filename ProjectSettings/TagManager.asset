@@ -10,6 +10,7 @@ TagManager:
   - Fruit
   - Enemy
   - Tomotroph
+  - Wall
   layers:
   - Default
   - TransparentFX
