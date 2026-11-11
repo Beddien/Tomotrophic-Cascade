@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -14,8 +15,11 @@ public class EnemyBehavior : MonoBehaviour
 	public float AttackTimerConstant = 2.5f;
 	public float damageAmount = 0f;
 	public float health = 15f;
+	public float maxHealth = 15f;
 	private bool isChasing = false;
-	private readonly List<GameObject> inRange = new List<GameObject>(); //TEMP FOR COMBAT
+	private readonly List<GameObject> inRange = new List<GameObject>();
+	public Image healthbar;
+	
     
 void OnTriggerStay(Collider collision){
 	  	if (collision.gameObject.CompareTag("Player")) isChasing = true;
@@ -98,6 +102,9 @@ void OnCollisionEnter(Collision collision)
 		}
 
 		isChasing = false;
+
+		health = Mathf.Clamp(health, 0, maxHealth);
+		healthbar.fillAmount = health / maxHealth;
 	}
 
 }

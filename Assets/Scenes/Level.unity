@@ -2052,6 +2052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomotroph
       objectReference: {fileID: 0}
+    - target: {fileID: 8952518025774094528, guid: 36f1f4bb092d94174955b71b31cd22bc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

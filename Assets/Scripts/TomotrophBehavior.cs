@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TomotrophBehavior : MonoBehaviour
 {
@@ -82,6 +83,10 @@ public class TomotrophBehavior : MonoBehaviour
     private void OnCollisionStay(Collision other) {
         if (other.gameObject.CompareTag("Enemy")){
 	    	attackTimer -= Time.deltaTime;
+            if (!other.gameObject.transform.GetComponentInChildren<Image>().enabled)
+            {
+                other.gameObject.transform.GetComponentInChildren<Image>().enabled = true;
+            }
 			if (attackTimer < 0f)
 			{
 
