@@ -16,6 +16,7 @@ public class TomotrophBehavior : MonoBehaviour
     private Vector3 followOffset;
     public Vector3 thrownPosition;
     public Vector3 throwForce;
+    public Vector3 wallPos;
     public float throwTime = 0.5f;
     public bool isThrown = false;
     public bool isActive = false;
@@ -45,6 +46,7 @@ public class TomotrophBehavior : MonoBehaviour
             Vector3 pos = currentTarget.position;
             if (new Vector2(pos.x - rb.position.x, pos.z - rb.position.z).magnitude > workDistance)
             {
+                if (currentTarget.CompareTag("Wall")) pos = wallPos;
                 MoveToward(pos);
             }
             else
@@ -115,6 +117,11 @@ public class TomotrophBehavior : MonoBehaviour
         float bestSqr = float.MaxValue;
         foreach (Collider i in suspects)
         {
+            if (i.CompareTag("Wall"))
+            {
+                wallPos = RandomFollowingPosition(i.GetComponent<BoxCollider>().bounds.center,
+                i.GetComponent<BoxCollider>().bounds.extents);
+            }
             if (!i.CompareTag("Enemy") && !i.CompareTag("Fruit") && !i.CompareTag("Wall")) continue;
             float currentSqr = (i.transform.position - transform.position).sqrMagnitude;
             if (currentSqr < bestSqr)
