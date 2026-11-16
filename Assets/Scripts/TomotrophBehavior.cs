@@ -54,7 +54,11 @@ public class TomotrophBehavior : MonoBehaviour
 
             
         }
-        else if (isFollowing) FollowPlayer();
+        else if (isFollowing)
+        {
+            FollowPlayer();
+                        
+        }
         else Freeze();
   
     }
@@ -134,6 +138,7 @@ public class TomotrophBehavior : MonoBehaviour
         // saves the offset between the tomotroph's individual spot and the followregion.
         // then updates the position based on that offset and the followregion's current
         // position (so that they can keep following even when the player moves)
+        
         followPosition = followRegion.transform.position + followOffset;
         MoveToward(followPosition);
 
@@ -163,9 +168,11 @@ public class TomotrophBehavior : MonoBehaviour
     */
     void OnTriggerEnter(Collider player)
     {
+
         if(player.tag == "Player" && !isThrown && !isActive){
             isFollowing = true;
             TomotrophManager.Register(this);
+            
 
             followRegionCenter = followRegion.GetComponent<BoxCollider>().bounds.center;
             followRegionExtents = followRegion.GetComponent<BoxCollider>().bounds.extents;
@@ -182,7 +189,7 @@ public class TomotrophBehavior : MonoBehaviour
 
     */
     void OnTriggerStay(Collider player){
-
+        
 	}
 
     /*
@@ -217,7 +224,7 @@ public class TomotrophBehavior : MonoBehaviour
         throwForce.z = (displacement.z/throwTime) * 0.35f;
         throwForce.y = 5 - 0.5f * Physics.gravity.y * throwTime;
 
-
+        // EventManager.TriggerEvent("SubOneTomotroph");
         rb.linearVelocity = throwForce;
     }
     public void Recall()

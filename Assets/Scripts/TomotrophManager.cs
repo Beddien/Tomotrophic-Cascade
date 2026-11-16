@@ -13,12 +13,16 @@ public class TomotrophManager : MonoBehaviour
         if (!available.Contains(t))
         {
             available.Add(t);
+            EventManager.TriggerEvent("AddOneTomotroph");
         }
+        
     }
 
     public static void Deregister(TomotrophBehavior t)
     {
         available.Remove(t);
+        EventManager.TriggerEvent("SubOneTomotroph");
+        
     }
 
     public static void RecallAll(Vector3 playerPosition)
