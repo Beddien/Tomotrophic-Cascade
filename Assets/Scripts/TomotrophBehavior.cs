@@ -24,8 +24,14 @@ public class TomotrophBehavior : MonoBehaviour
     public float damage = 1.0f;
     public float attackTimer = 1.0f;
     public float AttackTimerConstant = 1.0f;
+    private Animator animator;
 
     public bool isPlanted = false;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void FixedUpdate()
     {
@@ -229,4 +235,9 @@ public class TomotrophBehavior : MonoBehaviour
         isFollowing = true;
 
     }
+
+    
+
+
+
 }
