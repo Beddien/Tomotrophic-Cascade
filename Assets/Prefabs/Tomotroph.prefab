@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3640723990995670871}
   - component: {fileID: 8731496044599178602}
+  - component: {fileID: 3539072443729002580}
   m_Layer: 0
-  m_Name: standing (1)
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,6 +93,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!95 &3539072443729002580
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7301908799826383146}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9679f20f5f53d49bdbde58765a0c177c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7712438826754312609
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +257,7 @@ MonoBehaviour:
   rb: {fileID: 6511431110779252476}
   thrownPosition: {x: 0, y: 0, z: 0}
   throwForce: {x: 0, y: 0, z: 0}
+  wallPos: {x: 0, y: 0, z: 0}
   throwTime: 0.5
   isThrown: 0
   isActive: 0
@@ -242,6 +266,8 @@ MonoBehaviour:
   damage: 1
   attackTimer: 1
   AttackTimerConstant: 1
+  animator: {fileID: 3539072443729002580}
+  spriteRenderer: {fileID: 8731496044599178602}
   isPlanted: 0
 --- !u!135 &2134735112825166912
 SphereCollider:

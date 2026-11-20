@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Tomotrophic Cascade.slnx"
+    "dotnet.defaultSolution": "Tomotrophic-Cascade.slnx"
 }

@@ -25,13 +25,14 @@ public class TomotrophBehavior : MonoBehaviour
     public float damage = 1.0f;
     public float attackTimer = 1.0f;
     public float AttackTimerConstant = 1.0f;
-    private Animator animator;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
 
     public bool isPlanted = false;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        
     }
 
     void FixedUpdate()
@@ -54,10 +55,12 @@ public class TomotrophBehavior : MonoBehaviour
             {
                 if (currentTarget.CompareTag("Wall")) pos = wallPos;
                 MoveToward(pos);
+                animator.SetFloat("Speed",1f);
             }
             else
             {
                 Freeze();
+                animator.SetFloat("Speed",0f);
             }
 
             
@@ -65,10 +68,11 @@ public class TomotrophBehavior : MonoBehaviour
         else if (isFollowing)
         {
             FollowPlayer();
+            
                         
         }
         else Freeze();
-  
+        
     }
 
     void OnDestroy()
@@ -154,6 +158,8 @@ public class TomotrophBehavior : MonoBehaviour
         
         followPosition = followRegion.transform.position + followOffset;
         MoveToward(followPosition);
+        animator.SetFloat("Speed",1f);
+        
 
     }
 
@@ -166,6 +172,8 @@ public class TomotrophBehavior : MonoBehaviour
             : pos / Time.fixedDeltaTime;
 
         rb.linearVelocity = new Vector3(desired.x, rb.linearVelocity.y, desired.z);
+        spriteRenderer.flipX = rb.linearVelocity.x > 0f;
+
     }
 
     void Freeze()
